@@ -1,11 +1,16 @@
 Package: fars
 Type: Package
-Title: What the Package Does (Title Case)
+Title: This package is an assignment of coursera - Data Visualization of Car Accidents in USA.
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: anderson.uyekita[at]gmail.com
+Maintainer: AH Uyekita <anderson.uyekita[at]gmail.com>
+Description: This package has 5 functions. One to visualize the output (fars_map_state), One to data summarization
+    (fars_summarize_years), and the other 3 functions to load the dataset (fars_read and fars_read_years) and to
+    generate the filename properly (make_filename).
+License: MIT
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
