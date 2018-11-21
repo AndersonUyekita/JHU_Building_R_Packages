@@ -1,5 +1,5 @@
 ############################################################
-#                                                          # 
+#                                                          #
 #  Author : Anderson Hitoshi Uyekita                       #
 #  Project: Building R Packages - Week 2                   #
 #                                                          #
@@ -137,7 +137,7 @@ fars_summarize_years <- function(years) {
 #' @examples
 #' fars_map_state(state.num = 1, year = 2013)
 #' fars_map_state(state.num = 56, year = 2015)
-#' 
+#'
 #' @export
 
 fars_map_state <- function(state.num, year) {
