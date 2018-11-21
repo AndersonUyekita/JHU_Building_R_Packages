@@ -20,6 +20,6 @@ This functions will import several years by the using of the fars_read function 
 data manipulation as a creation of a column called year (using mutate) and a selection of two variable per year.
 }
 \examples{
-fars_read_years(years = list(2013,2014,2015))
+\dontrun{fars_read_years(years = list(2013,2014,2015))}
 
 }

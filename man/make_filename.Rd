@@ -16,7 +16,7 @@ The return of this function could be a single string or a list, depends of its i
 This functions will generate the filename string which will be used in the fars_read function
 }
 \examples{
-make_filename(year = 2015)
-make_filename(year = c(2013,2014))
+\dontrun{make_filename(year = 2015)}
+\dontrun{make_filename(year = c(2013,2014))}
 
 }

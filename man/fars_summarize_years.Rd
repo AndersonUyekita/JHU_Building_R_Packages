@@ -21,6 +21,6 @@ bind the separated dataset into one data.frame (using bind_rows). Later transfor
 by the spread function. As a result, years in columns rows as months.
 }
 \examples{
-fars_summarize_years(years = list(2013,2014,2015))
+\dontrun{fars_summarize_years(years = list(2013,2014,2015))}
 
 }

@@ -19,7 +19,7 @@ imported. These archive has data of the US National Highway Traffic Safety Admin
 this is a csv file. Keep in mind that the filename will be generate by the make_filename function.
 }
 \examples{
-fars_read(filename = "accident_2013.csv.bz2")
+\dontrun{fars_read(filename = "accident_2013.csv.bz2")}
 
 }
 \keyword{coursera}

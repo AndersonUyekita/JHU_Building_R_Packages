@@ -23,7 +23,7 @@
 #' @keywords coursera
 #'
 #' @examples
-#' fars_read(filename = "accident_2013.csv.bz2")
+#' \dontrun{fars_read(filename = "accident_2013.csv.bz2")}
 #'
 #' @export
 
@@ -44,8 +44,8 @@ fars_read <- function(filename) {
 #' @return The return of this function could be a single string or a list, depends of its inputs.
 #'
 #' @examples
-#' make_filename(year = 2015)
-#' make_filename(year = c(2013,2014))
+#' \dontrun{make_filename(year = 2015)}
+#' \dontrun{make_filename(year = c(2013,2014))}
 #'
 #' @export
 
@@ -69,7 +69,7 @@ make_filename <- function(year) {
 #' @importFrom dplyr mutate select
 #'
 #' @examples
-#' fars_read_years(years = list(2013,2014,2015))
+#' \dontrun{fars_read_years(years = list(2013,2014,2015))}
 #'
 #' @export
 
@@ -105,7 +105,7 @@ fars_read_years <- function(years) {
 #' @importFrom magrittr %>%
 #'
 #' @examples
-#' fars_summarize_years(years = list(2013,2014,2015))
+#' \dontrun{fars_summarize_years(years = list(2013,2014,2015))}
 #'
 #' @export
 
@@ -135,8 +135,8 @@ fars_summarize_years <- function(years) {
 #' @importFrom dplyr filter
 #'
 #' @examples
-#' fars_map_state(state.num = 1, year = 2013)
-#' fars_map_state(state.num = 56, year = 2015)
+#' \dontrun{fars_map_state(state.num = 1, year = 2013)}
+#' \dontrun{fars_map_state(state.num = 56, year = 2015)}
 #'
 #' @export
 

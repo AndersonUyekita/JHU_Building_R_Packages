@@ -21,7 +21,7 @@ This function perform the data visualization, for each set of state and years wi
 points, where points represents the accidents in this state during the given years.
 }
 \examples{
-fars_map_state(state.num = 1, year = 2013)
-fars_map_state(state.num = 56, year = 2015)
+\dontrun{fars_map_state(state.num = 1, year = 2013)}
+\dontrun{fars_map_state(state.num = 56, year = 2015)}
 
 }
