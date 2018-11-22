@@ -12,6 +12,9 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
+[![Build Status](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages.svg?branch=master)](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages)
+
 # Peer-graded Assignment: Building an R Package
 
 ## FARS Package <small>Building R Packages</small>

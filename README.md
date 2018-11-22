@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Build Status](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages.svg?branch=master)](https://travis-ci.org/AndersonUyekita/JHU_Building_R_Packages)
+
 Peer-graded Assignment: Building an R Package
 =============================================
 
