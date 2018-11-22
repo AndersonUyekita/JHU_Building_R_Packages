@@ -10,7 +10,7 @@ fars_map_state(state.num, year)
 \arguments{
 \item{state.num}{The operator must know the code of the state to generate the desired map.}
 
-\item{years}{Could be a single year or a list of years.}
+\item{year}{Could be a single year or a list of years.}
 }
 \value{
 The return will be a map with point ploted representing accidents. If the state code is not correct

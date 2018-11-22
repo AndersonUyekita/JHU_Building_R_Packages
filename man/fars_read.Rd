@@ -7,7 +7,7 @@
 fars_read(filename)
 }
 \arguments{
-\item{finename}{Is a character string which represents the archive's name.}
+\item{filename}{Is a character string which represents the archive's name.}
 }
 \value{
 This functions returns a data frame of the imported data in case of an invalid name it will return

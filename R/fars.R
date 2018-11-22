@@ -11,7 +11,7 @@
 #' imported. These archive has data of the US National Highway Traffic Safety Administration's, and
 #' this is a csv file. Keep in mind that the filename will be generate by the make_filename function.
 #'
-#' @param finename Is a character string which represents the archive's name.
+#' @param filename Is a character string which represents the archive's name.
 #'
 #' @return This functions returns a data frame of the imported data in case of an invalid name it will return
 #'         a message error "file XXXX does not exist".
@@ -26,8 +26,6 @@
 #' \dontrun{fars_read(filename = "accident_2013.csv.bz2")}
 #'
 #' @export
-
-# Based on the make_filename function. Will read the archive.
 fars_read <- function(filename) {
         if(!file.exists(filename))
                 stop("file '", filename, "' does not exist")
@@ -48,8 +46,6 @@ fars_read <- function(filename) {
 #' \dontrun{make_filename(year = c(2013,2014))}
 #'
 #' @export
-
-# This function create names of archivies
 make_filename <- function(year) {
         year <- as.integer(year)
         sprintf("accident_%d.csv.bz2", year)
@@ -68,20 +64,19 @@ make_filename <- function(year) {
 #'
 #' @importFrom dplyr mutate select
 #'
+#' @importFrom rlang .data
+#'
 #' @examples
 #' \dontrun{fars_read_years(years = list(2013,2014,2015))}
 #'
 #' @export
-
-
-# Apply a function in a given list
 fars_read_years <- function(years) {
         lapply(years, function(year) {
                 file <- make_filename(year)
                 tryCatch({
                         dat <- fars_read(file)
                         dplyr::mutate(dat, year = year) %>%
-                                dplyr::select(MONTH, year)
+                                dplyr::select(.data$MONTH, .data$year)
                 }, error = function(e) {
                         warning("invalid year: ", year)
                         return(NULL)
@@ -100,28 +95,28 @@ fars_read_years <- function(years) {
 #'
 #' @importFrom tidyr spread
 #'
-#' @importFrom dplyr bind_rows group_by summarize
+#' @importFrom dplyr bind_rows group_by summarize n
 #'
 #' @importFrom magrittr %>%
+#'
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{fars_summarize_years(years = list(2013,2014,2015))}
 #'
 #' @export
-
-
 fars_summarize_years <- function(years) {
         dat_list <- fars_read_years(years)
         dplyr::bind_rows(dat_list) %>%
-                dplyr::group_by(year, MONTH) %>%
-                dplyr::summarize(n = n()) %>%
-                tidyr::spread(year, n)
+                dplyr::group_by(.data$year, .data$MONTH) %>%
+                dplyr::summarize("n" = dplyr::n(.data)) %>%
+                tidyr::spread(.data$year,.data$n)
 }
 
 #' This function perform the data visualization, for each set of state and years will be displayed the state and
 #' points, where points represents the accidents in this state during the given years.
 #'
-#' @param years Could be a single year or a list of years.
+#' @param year Could be a single year or a list of years.
 #'
 #' @param state.num The operator must know the code of the state to generate the desired map.
 #'
@@ -139,7 +134,6 @@ fars_summarize_years <- function(years) {
 #' \dontrun{fars_map_state(state.num = 56, year = 2015)}
 #'
 #' @export
-
 fars_map_state <- function(state.num, year) {
         filename <- make_filename(year)
         data <- fars_read(filename)
@@ -147,7 +141,7 @@ fars_map_state <- function(state.num, year) {
 
         if(!(state.num %in% unique(data$STATE)))
                 stop("invalid STATE number: ", state.num)
-        data.sub <- dplyr::filter(data, STATE == state.num)
+        data.sub <- dplyr::filter(data, .data$STATE == state.num)
         if(nrow(data.sub) == 0L) {
                 message("no accidents to plot")
                 return(invisible(NULL))
